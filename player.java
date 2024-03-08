@@ -22,7 +22,6 @@ public class player {
                 if (theBoard.possible_move(j, i, this.player_value)) {
                     Entry<Integer,Integer> pair=new SimpleEntry<>(j,i);
                     moves.add(pair);
-                    System.out.printf("%d %d\n", j, i);
                 }
             }
         }

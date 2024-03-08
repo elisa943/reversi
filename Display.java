@@ -9,11 +9,13 @@ public class Display extends JFrame {
     }
 
     public void initialize_game(String title) {
+        int BOARD_SIZE = board.BOARD_SIZE;
+        int WINDOW_SIZE = 800;
+        
         // Sets title and size
         setTitle("Reversi");
-        setSize(800, 800);
-        int BOARD_SIZE = board.BOARD_SIZE;
-
+        setSize(WINDOW_SIZE, WINDOW_SIZE);
+        
         // Creates the grid
         JPanel panel = new JPanel(new GridLayout(BOARD_SIZE, BOARD_SIZE));
         add(panel);
@@ -29,6 +31,6 @@ public class Display extends JFrame {
         }
 
         Graphics graphics = panel.getGraphics();
-        Draw drawing = new Draw();
+        Draw drawing = new Draw(50, 50, graphics);
     }
 }
