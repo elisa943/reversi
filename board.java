@@ -2,7 +2,7 @@ public class board {
     public static int[][] board;
     public static int BOARD_SIZE = 8;
 
-    public static void init() {
+    public board() {
         board = new int[BOARD_SIZE][BOARD_SIZE]; // initialisée à 0
         board[BOARD_SIZE/2 - 1][BOARD_SIZE/2 - 1] = 1;
         board[BOARD_SIZE/2][BOARD_SIZE/2] = 1;
@@ -106,15 +106,17 @@ public class board {
         // If the position is already occupied, returns false
         if (board[j][i] != 0) {return false;}
         
-        // Else, checks if it's surrounded by a disk of -color.
+        // Else, checks if it's surrounded by a disk of -color (except through diagonals)
         for (int dir_j = max(0, j-1); dir_j <= min(BOARD_SIZE - 1, j+1); dir_j++) {
             for (int dir_i = max(0, i-1); dir_i <= min(BOARD_SIZE - 1, i+1); dir_i++) {
-                if (!(dir_i == 0 && dir_j == 0)) {
+                if ((dir_i-i == 0 && dir_j-j != 0) || (dir_i-i != 0 && dir_j-j == 0)) {
                     // If a disk of the opposite color is found nearby (j, i) then a move can be made
                     if (board[dir_j][dir_i] == (-player)) {return true;}
                 }
             }
         }
+
+        
 
         return false;
     }
