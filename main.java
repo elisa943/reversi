@@ -10,14 +10,17 @@ public class main {
 
         JFrame frame = new Display("Reversi");
 
-
         // Creates all entities 
-        board theBoard = new board();
         player firstPlayer = new player(1);
         player secondPlayer = new player(-1);
+        board theBoard = new board(firstPlayer);
 
+        ai theAI = new ai();
 
         List<Entry<Integer,Integer>> moves = firstPlayer.all_possible_moves(theBoard);
+
+        Entry<Integer,Integer> move = ai.minimax(5, firstPlayer, secondPlayer, theBoard);
+
 
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE); // Fermeture de l'app
         frame.setVisible(true);

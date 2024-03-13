@@ -1,13 +1,15 @@
 public class board {
     public static int[][] board;
     public static int BOARD_SIZE = 8;
+    public player startingPlayer;
 
-    public board() {
+    public board(player startingPlayer) {
         board = new int[BOARD_SIZE][BOARD_SIZE]; // initialisée à 0
         board[BOARD_SIZE/2 - 1][BOARD_SIZE/2 - 1] = 1;
         board[BOARD_SIZE/2][BOARD_SIZE/2] = 1;
         board[BOARD_SIZE/2][BOARD_SIZE/2 - 1] = -1;
         board[BOARD_SIZE/2 - 1][BOARD_SIZE/2] = -1;
+        this.startingPlayer = startingPlayer;
     }
 
     public static int max(int a, int b) {
@@ -115,8 +117,6 @@ public class board {
                 }
             }
         }
-
-        
 
         return false;
     }
