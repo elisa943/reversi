@@ -17,9 +17,9 @@ public class main {
 
         ai theAI = new ai();
 
-        List<Entry<Integer,Integer>> moves = firstPlayer.all_possible_moves(theBoard);
+        List<Couple> moves = firstPlayer.all_possible_moves(theBoard);
 
-        Entry<Integer,Integer> move = ai.minimax(5, firstPlayer, secondPlayer, theBoard);
+        Couple move = ai.minimax(5, firstPlayer, secondPlayer, theBoard);
 
 
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE); // Fermeture de l'app

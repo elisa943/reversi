@@ -1,6 +1,6 @@
 public class board {
     public static int[][] board;
-    public static int BOARD_SIZE = 8;
+    public static final int BOARD_SIZE = 8;
     public player startingPlayer;
 
     public board(player startingPlayer) {

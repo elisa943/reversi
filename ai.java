@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
-import java.util.AbstractMap.SimpleEntry;
 
 public class ai {
     public static void main(String[] args) {
@@ -36,7 +34,7 @@ public class ai {
         }
     }
 
-    public static board result(board theBoard, Entry<Integer,Integer> move) {
+    public static board result(board theBoard, Couple move) {
         board copy = new board(theBoard.startingPlayer);
 
         // Copies theBoard's board. 
@@ -48,19 +46,20 @@ public class ai {
 
         // TODO : Makes the associated move 
 
+
         // TODO : Changes copy's starting player 
 
         return copy;
     }
 
-    public static Entry<Integer,Integer> minimax(int depth, player firstPlayer, player secondPlayer, board theBoard) {
+    public static Couple minimax(int depth, player firstPlayer, player secondPlayer, board theBoard) {
         /* Returns the optimal action for the current player */
 
         // if the game is finished, no need to make a move. 
         if (theBoard.game_finished()) {return null;}
 
         // list of all possible moves. 
-        List<Entry<Integer,Integer>> possible_moves = (theBoard.startingPlayer == firstPlayer ? firstPlayer : secondPlayer).all_possible_moves(theBoard);
+        List<Couple> possible_moves = (theBoard.startingPlayer == firstPlayer ? firstPlayer : secondPlayer).all_possible_moves(theBoard);
         List<Integer> state_value_all_moves;
 
         // TODO : change Entry class -> Couple class
