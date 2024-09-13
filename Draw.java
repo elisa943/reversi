@@ -1,25 +1,25 @@
-import static java.lang.Math.*;
-import java.util.Arrays;
-import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*; 
+import java.awt.geom.*;
 
-public class Draw {
-    private int x;
-    private int y;
-    private Graphics g;
-    // private Component c;
-    static final int DISK_RADIUS = 45;
+public class Draw extends JComponent {
+    private int COMPONENT_SIZE;
+    private int BUTTON_SIZE = 100;
 
-    public Draw(int x, int y, Graphics g) {
-        this.x = x;
-        this.y = y;
-        this.g = g;
+    public Draw(int SIZE) {
+        COMPONENT_SIZE = SIZE;
     }
 
-    public void display_disk(Color color) {
-        g.setColor(color);
-        g.drawOval(x, y, DISK_RADIUS, DISK_RADIUS);
-    }
+    protected void paintComponent (Graphics g, int j, int i, Color color) {
+        Graphics2D g2d = (Graphics2D) g;
 
+        // Creates the disk
+        Ellipse2D.Double d = new Ellipse2D.Double(i*BUTTON_SIZE, j*BUTTON_SIZE, COMPONENT_SIZE, COMPONENT_SIZE);
+
+        // Sets the color
+        g2d.setColor(color);
+
+        // Fills the disk with the given color
+        g2d.fill(d);
+    }
 }

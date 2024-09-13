@@ -1,11 +1,14 @@
 CC=javac
 FILE=main
 
-all: $(FILE)
-	@echo "Construction de la classe."
+all: $(FILE) run
+	@echo "Fermeture du jeu"
 
 $(FILE):
-	$(CC) $(FILE).java
+	@echo "Construction de la classe"
+	$(CC) *.java
+
+run: 
 	java $(FILE)
 
 clean:

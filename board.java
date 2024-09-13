@@ -21,20 +21,24 @@ public class board {
     }
 
     public void places_disk(int j, int i, int player) {
-        // Places the new disk
+        // Place the new disk
         board[j][i] = player;
         
-        // Inverts the disks
+        // Invert the disks
+        boolean disk_found;
+        boolean stop;
+        int current_i;
+        int current_j;
 
-        // Looks for all directions
+        // Look for all directions
         for (int m = -1; m <= 1; m++) { // y 
             for (int n = -1; n <= 1; n++) { // x
                 // Checks that the direction isn't idle
                 if (!(m == 0 && n == 0)) {
-                    boolean disk_found = false;
-                    boolean stop = false;
-                    int current_i = i;
-                    int current_j = j;
+                    disk_found = false;
+                    stop = false;
+                    current_i = i;
+                    current_j = j;
                     while (current_i < BOARD_SIZE && current_i > -1 && current_j < BOARD_SIZE && current_j > -1 && !(stop)) {
                         current_j += m;
                         current_i += n;
@@ -77,6 +81,7 @@ public class board {
     }
 
     public int winner() {
+        /* Returns the value of the player who won */
         int positive = 0;
         int negative = 0;
         for (int j = 0; j < BOARD_SIZE; j++) {
@@ -94,6 +99,7 @@ public class board {
     }
 
     public void print_board() {
+        /* Prints on the board on the terminal */
         for (int j = 0; j < BOARD_SIZE; j++) {
             for (int i = 0; i < BOARD_SIZE; i++) {
                 System.out.printf("%d ", board[j][i]);
@@ -104,7 +110,8 @@ public class board {
     }
 
     public boolean possible_move(int j, int i, int player) {
-
+        /* Returns true if a move is possible 
+        ie : if the disk chosen by the player is neighbouring an opposite player's disk */
         // If the position is already occupied, returns false
         if (board[j][i] != 0) {return false;}
         

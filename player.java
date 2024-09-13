@@ -4,14 +4,14 @@ import java.util.Map.Entry;
 import java.util.AbstractMap.SimpleEntry;
 
 public class player {
-    public static int player_value; // either 1 or -1 
+    public int player_value; // either 1 or -1 
 
     public player(int value) {
         this.player_value = value;
     }
 
-    public static int score(board theBoard) {
-        /* Counts the number of disk the player has. */
+    public int score(board theBoard) {
+        /* Counts the number of disks the player has. */
         int n = 0;
 
         for (int j = 0; j < board.BOARD_SIZE; j++) {
@@ -23,7 +23,6 @@ public class player {
         }
 
         return n;
-
     }
 
     public List<Couple> all_possible_moves(board theBoard) {
