@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;   
 
-public class main {
+public class Main {
     public static void main(String[] args) {
 
         boolean run = true;

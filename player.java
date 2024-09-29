@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.AbstractMap.SimpleEntry;
 
-public class player {
+public class Player {
     public int player_value; // either 1 or -1 
 
     public player(int value) {

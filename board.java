@@ -1,4 +1,4 @@
-public class board {
+public class Board {
     public static int[][] board;
     public static final int BOARD_SIZE = 8;
     public player startingPlayer;
