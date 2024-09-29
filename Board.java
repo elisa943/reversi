@@ -1,9 +1,9 @@
 public class Board {
     public static int[][] board;
     public static final int BOARD_SIZE = 8;
-    public player startingPlayer;
+    public Player startingPlayer;
 
-    public board(player startingPlayer) {
+    public Board(Player startingPlayer) {
         board = new int[BOARD_SIZE][BOARD_SIZE]; // initialisée à 0
         board[BOARD_SIZE/2 - 1][BOARD_SIZE/2 - 1] = 1;
         board[BOARD_SIZE/2][BOARD_SIZE/2] = 1;
@@ -112,6 +112,7 @@ public class Board {
     public boolean possible_move(int j, int i, int player) {
         /* Returns true if a move is possible 
         ie : if the disk chosen by the player is neighbouring an opposite player's disk */
+        
         // If the position is already occupied, returns false
         if (board[j][i] != 0) {return false;}
         

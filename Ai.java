@@ -2,11 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ai {
-    public static void main(String[] args) {
 
-    }
-
-    public static int state_value(player thePlayer, board theBoard) {
+    public static int state_value(Player thePlayer, Board theBoard) {
         /* Counts the number of thePlayer's tile for now. 
         In the future, a better heuristic will be needed. */
         
@@ -15,8 +12,8 @@ public class Ai {
             int valueOfPlayer = 0;
             int valueOfAdversary = 0;
 
-            for (int j = 0; j < board.BOARD_SIZE; j++) {
-                for (int i = 0; i < board.BOARD_SIZE; i++) {
+            for (int j = 0; j < Board.BOARD_SIZE; j++) {
+                for (int i = 0; i < Board.BOARD_SIZE; i++) {
                     if (theBoard.board[j][i] == thePlayer.player_value) {
                         valueOfPlayer++;
                     }
@@ -28,18 +25,18 @@ public class Ai {
 
             return valueOfPlayer-valueOfAdversary;
         }
-        // Else, the game is finished and returns ±board.BOARD_SIZE if the player won or not
+        // Else, the game is finished and returns ±Board.BOARD_SIZE if the player won or not
         else {
-            return (board.BOARD_SIZE*board.BOARD_SIZE)*((theBoard.winner() == thePlayer.player_value) ? 1 : -1);
+            return (Board.BOARD_SIZE*Board.BOARD_SIZE)*((theBoard.winner() == thePlayer.player_value) ? 1 : -1);
         }
     }
 
-    public static board result(board theBoard, Couple move) {
-        board copy = new board(theBoard.startingPlayer);
+    public static Board result(Board theBoard, Couple move) {
+        Board copy = new Board(theBoard.startingPlayer);
 
         // Copies theBoard's board. 
-        for (int j = 0; j < board.BOARD_SIZE; j++) {
-            for (int i = 0; i < board.BOARD_SIZE; i++) {
+        for (int j = 0; j < Board.BOARD_SIZE; j++) {
+            for (int i = 0; i < Board.BOARD_SIZE; i++) {
                 copy.board[j][i] = theBoard.board[j][i];
             }
         }
@@ -52,7 +49,7 @@ public class Ai {
         return copy;
     }
 
-    public static Couple minimax(int depth, player firstPlayer, player secondPlayer, board theBoard) {
+    public static Couple minimax(int depth, Player firstPlayer, Player secondPlayer, Board theBoard) {
         /* Returns the optimal action for the current player */
 
         // if the game is finished, no need to make a move. 

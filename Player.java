@@ -6,16 +6,16 @@ import java.util.AbstractMap.SimpleEntry;
 public class Player {
     public int player_value; // either 1 or -1 
 
-    public player(int value) {
+    public Player(int value) {
         this.player_value = value;
     }
 
-    public int score(board theBoard) {
+    public int score(Board theBoard) {
         /* Counts the number of disks the player has. */
         int n = 0;
 
-        for (int j = 0; j < board.BOARD_SIZE; j++) {
-            for (int i = 0; i < board.BOARD_SIZE; i++) {
+        for (int j = 0; j < Board.BOARD_SIZE; j++) {
+            for (int i = 0; i < Board.BOARD_SIZE; i++) {
                 if (theBoard.board[j][i] == player_value) {
                     n++;
                 }
@@ -25,10 +25,10 @@ public class Player {
         return n;
     }
 
-    public List<Couple> all_possible_moves(board theBoard) {
+    public List<Couple> all_possible_moves(Board theBoard) {
         /* Returns a list of all possible moves */
         List<Couple> moves = new ArrayList<>();
-        int BOARD_SIZE = board.BOARD_SIZE;
+        int BOARD_SIZE = Board.BOARD_SIZE;
 
         for (int j = 0; j < BOARD_SIZE; j++) {
             for (int i = 0; i < BOARD_SIZE; i++) {

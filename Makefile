@@ -1,5 +1,5 @@
 CC=javac
-FILE=main
+FILE=Main
 
 all: $(FILE) run
 	@echo "Fermeture du jeu"
